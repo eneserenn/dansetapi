@@ -21,7 +21,9 @@ class QuizController extends Controller
 
     public function allquiz($id){
 
-        return QuizCategory::find($id) -> getQuiz() -> get();
+        $quizz = QuizCategory::find($id) -> getQuiz() -> get();
+
+        return response()->json(['quizzes' => $quizz]);
   
       }
 
