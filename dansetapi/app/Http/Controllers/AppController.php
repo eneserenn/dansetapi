@@ -9,7 +9,7 @@ class AppController extends Controller
 {
     public function index($id){
         
-        return App::find($id);
+        return App::get();
     }
 
     public function create(Request $req){

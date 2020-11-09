@@ -26,7 +26,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //app oluşturur
 Route::post('/create/app', [AppController::class, 'create']);
 //tüm appleri getirir
-Route::get('/get/app/{id}', [AppController::class, 'index']);
+Route::get('/get/app', [AppController::class, 'index']);
 ################################################################################
 ################################################################################
 //quiz categoty oluşturur
