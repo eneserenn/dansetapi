@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\QuizQuestion;
 use App\Models\Quiz;
 
+
 class QuestionController extends Controller
 {
     public function create(Request $req){
@@ -22,7 +23,17 @@ class QuestionController extends Controller
 
     public function allquestion($id){
 
-       return Quiz::find($id) -> getQuestion() -> get();
+       $questions = Quiz::find($id) -> getQuestion() -> get();
+       
+       foreach($questions as $question){
+
+       $answers = $question -> getAnswer()-> get();
+
+       return response()->json([
+        'question' => $question -> question,
+        'answers' => $answers
+    ]);
+       }
 
     }
 }
